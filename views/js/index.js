@@ -58,14 +58,17 @@ function init(data) {
         }
     }
     const json = JSON.parse(final)
+    var num = 0;
     json.forEach(ob => {
+        num++;
         const type = ob.type;
         if (type === "key_value") {
             var code = `<h1>${escapeHtml(ob.name)}</h1>`
             ob.data.forEach(data => {
                 code += `<p>${escapeHtml(data.key)}: ${escapeHtml(data.value)}</p>`;
             })
-            code = "<div>" + code + "</div><hr>"
+            code = "<div>" + code + "</div>"
+            if (num !== json.length ) code = code + "<hr>"
             $(code).appendTo("#body")
         } else if (type === "files") {
             var code = `<h1>${escapeHtml(ob.name)}</h1>`
@@ -76,7 +79,9 @@ function init(data) {
                 code += `<div class="file" ><span class="auto-height" style="text-overflow: ellipsis; max-width:99%;overflow:hidden;    white-space: nowrap;
 ">${data.name}</span> <span class="material-icons reset-margin auto-height cursorPointer" onclick="openFile(${internalId})">launch</span></div>`;
             })
-            code = "<div>" + code + "</div><hr>"
+            code = "<div>" + code + "</div>"
+            console.log(json.length + " " + num)
+            if (num !== json.length ) code = code + "<hr>"
             $(code).appendTo("#body")
         }
     })

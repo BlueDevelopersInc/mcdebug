@@ -4,7 +4,7 @@ const fs = require("fs")
 const ejs = require("ejs")
 const app = express()
 const multer = require('multer');
-const port = 2000;
+const port = 8080;
 app.use("/img", express.static("views/img"));
 app.use("/css", express.static("views/css"));
 app.use("/js", express.static("views/js"));

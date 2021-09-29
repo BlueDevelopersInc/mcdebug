@@ -118,3 +118,4 @@ dist
 .pnp.*
 debugs/
 .idea/
+json.sqlite

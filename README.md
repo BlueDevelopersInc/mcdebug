@@ -10,6 +10,7 @@ For Plugin devs, you implement this into your plugin... uploading some informati
 
 To upload a debug report... 
 
+### Request
 Endpoint: /api/v1/createDebug
 Method: Post
 Content-Type: form-data
@@ -46,7 +47,19 @@ add form data parameter "data", value is aes encrypted + b64 json array. Here is
 ```
 (shouldnt include comments)
 
-when encrypted + b64 and sent to website here is the result:
+### Response
+Response Example:
+
+```json
+{"id": "someid"}
+```
+
+The url to access the report would be https://url.to.website/someid#aeskey
+
+
+### Result
+
+The result of the previous data json would be
 
 ![IMAGE](https://imgur.com/35kNm0J.png)
 
