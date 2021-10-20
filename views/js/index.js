@@ -107,9 +107,13 @@ function openFile(internalId) {
 }
 
 function closeDialog() {
-    $('.dialog_container').animate({opacity: '0', 
-    complete: function() {$('.dialog_container').remove()}
-})
+    $('.dialog_container').animate({
+        opacity: '0',
+    }, {
+        complete: function() {
+            $('.dialog_container').remove()
+        }
+    })
 }
 function openDialog(/*language:html*/html) {
     $(`<div class='dialog_container'>${html}</div>`).appendTo("body")
