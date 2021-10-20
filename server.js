@@ -56,21 +56,21 @@ app.post("/api/v1/createDebug",multer().none(), async function (req, res) {
     var body = req.body
     res.setHeader('content-type', 'application/json');
     if (body === undefined || body.data === undefined) {
-        const json = JSON.parse("{}")
+        const json = {}
         json.error = "No data param in body"
         res.status(400)
         res.send(JSON.stringify(json))
         return;
     }
     const id = await createDebug(body.data)
-    const json = JSON.parse("{}")
+    const json = {}
     json.id = id;
     res.send(JSON.stringify(json))
 })
 app.get("/api/v1/getDebug/:id",multer().none(), async function (req, res) {
     var body = req.body
     res.setHeader('content-type', 'application/json');
-    const json = JSON.parse("{}")
+    const json = {}
     try {
         const data = await getDebugData(req.params.id)
 
@@ -102,7 +102,7 @@ app.use(function(err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    const json = JSON.parse("{}")
+    const json = {}
     json.message = err.message;
     json.error = res.locals.error;
     res.send(JSON.stringify(json));
