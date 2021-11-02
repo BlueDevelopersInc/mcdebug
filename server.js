@@ -4,7 +4,10 @@ const fs = require("fs")
 const ejs = require("ejs")
 const app = express()
 const multer = require('multer');
-const port = 8080;
+require('dotenv').config({
+    path: "./.env"
+})
+const port = process.env["port"];
 app.use("/img", express.static("views/img"));
 app.use("/css", express.static("views/css"));
 app.use("/js", express.static("views/js"));
