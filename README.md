@@ -66,6 +66,6 @@ The result of the previous data json would be
 
 # Hosted Version
 
-https://mcdebug.bluetree242.tk
+https://mcdebug.bluetree242.ml
 
 
